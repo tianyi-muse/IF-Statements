@@ -1,0 +1,63 @@
+/* Program written by Tianyi Shi on 21th January
+ * Assignment IF Statements
+ */
+void setup() {
+  pinMode(12, OUTPUT);//Led1
+  pinMode(7,OUTPUT);//Led2
+  pinMode(8,OUTPUT);//Led3
+  pinMode(13,INPUT);//The button
+  Serial.begin(9600);
+}
+
+void loop() {
+ Serial.println(analogRead(5));
+ if(digitalRead(13)==HIGH){ 
+  digitalWrite(7,HIGH);
+  digitalWrite(12,LOW);
+  delay(1000);
+  
+  digitalWrite(7,LOW);
+  digitalWrite(12,HIGH);
+  delay(500);
+  
+  digitalWrite(7,HIGH);
+  digitalWrite(12,LOW);
+  delay(500);
+  
+  digitalWrite(7,LOW);
+  digitalWrite(12,HIGH);
+  delay(1000);
+  
+  digitalWrite(8,HIGH);
+  digitalWrite(12,LOW);
+  delay(500);
+  
+  digitalWrite(8,LOW);
+  digitalWrite(12,HIGH);
+  delay(1000);
+  
+  digitalWrite(8,HIGH);
+  digitalWrite(12,LOW);
+  delay(1000);
+  
+  digitalWrite(8,LOW);
+  digitalWrite(12,HIGH);
+  delay(500);
+   
+  
+  }else{
+    if(analogRead(5)<500){
+      digitalWrite(12,HIGH);
+      digitalWrite(7,LOW);
+      digitalWrite(8,LOW);    
+    }else if(analogRead(5)>900){
+      digitalWrite(7,HIGH);
+      digitalWrite(12,LOW);
+      digitalWrite(8,LOW);
+    }else{
+      digitalWrite(8,HIGH);
+      digitalWrite(7,LOW);
+      digitalWrite(12,LOW);
+    }
+  }
+}
